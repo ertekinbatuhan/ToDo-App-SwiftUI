@@ -23,6 +23,7 @@ struct AddToDoView: View {
           
           UINavigationBar.appearance().standardAppearance = appearance
           UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
       }
     
     

@@ -27,7 +27,6 @@ class SignInViewModel  : ObservableObject{
                 self.loginSuccesfull = true
             }
             
-            
         }
         
     }

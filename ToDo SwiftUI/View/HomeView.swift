@@ -19,6 +19,7 @@ struct HomeView: View {
         
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
     }
     
     private func deleteToDo(indexSet: IndexSet) {
