@@ -13,40 +13,40 @@ struct SignInView: View {
         GeometryReader { geometry in
             NavigationStack {
                 VStack {
-                    // Image Section
+                   
                     Image("login")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: geometry.size.height * 0.4) // Resmin yüksekliğini GeometryReader'ın yarısına ayarlar
+                        .frame(height: geometry.size.height * 0.4)
                         .cornerRadius(20.0)
                         .padding(.horizontal)
                     
-                    Spacer().frame(height: 20) // Boşluk bırakır
+                    Spacer().frame(height: 20)
                     
-                    // Text Section
+                   
                     Text("Sign In")
                         .font(.largeTitle)
                         .foregroundColor(.blue)
                         .padding(.bottom, 20)
                     
-                    // Email TextField
+                   
                     TextField("Enter e-mail", text: $email)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
                         .padding(.horizontal)
                     
-                    // Password TextField
+                   
                     SecureField("Enter password", text: $password)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
                         .padding(.horizontal)
                     
-                    // Login Button
+                    
                     NavigationLink(destination : TabPage() , isActive: $viewModel.loginSuccesfull) {
                         Button("Log In") {
-                            // Button action here
+                           
                             viewModel.email = email
                             viewModel.password = password
                             viewModel.signIn()
