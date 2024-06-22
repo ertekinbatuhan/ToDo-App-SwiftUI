@@ -18,7 +18,7 @@ struct SignUpView: View {
                     Image("sigIn")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: geometry.size.height * 0.3) // Ekran yüksekliğinin %30'u kadar resim boyutu
+                        .frame(height: geometry.size.height * 0.3)
                         .cornerRadius(20.0)
                         .padding(.top, 50)
                     

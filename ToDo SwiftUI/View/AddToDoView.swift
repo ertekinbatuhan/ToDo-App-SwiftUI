@@ -12,8 +12,6 @@ struct AddToDoView: View {
     
     @Environment(\.modelContext) private var context
    
-    
-    
     init() {
          
           let appearance = UINavigationBarAppearance()

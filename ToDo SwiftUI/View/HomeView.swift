@@ -1,9 +1,3 @@
-//
-//  HomeView.swift
-//  ToDo SwiftUI
-//
-//  Created by Batuhan Berk Ertekin on 22.06.2024.
-
 import SwiftUI
 import SwiftData
 
@@ -13,40 +7,39 @@ struct HomeView: View {
     @Query(sort: \ToDo.date, order: .reverse) private var toDos: [ToDo]
     @State private var selectedToDo: ToDo?
     @State private var isAddingToDo = false
+    @State private var searchText: String = ""
     
-   init() {
-       
+    init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .systemGray6
         appearance.titleTextAttributes = [.foregroundColor: UIColor.blue]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.blue]
-        appearance.shadowColor = nil 
+        appearance.shadowColor = nil
         
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
     private func deleteToDo(indexSet: IndexSet) {
-           
-           indexSet.forEach { index in
-               let toDo = toDos[index]
-               context.delete(toDo)
-               do {
-                   try context.save()
-               } catch {
-                   print(error.localizedDescription)
-               }
-           }
-           
-       }
-   
+        indexSet.forEach { index in
+            let toDo = toDos[index]
+            context.delete(toDo)
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
    
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(toDos) { toDo in
+                    ForEach(toDos.filter {
+                        searchText.isEmpty || $0.task.localizedCaseInsensitiveContains(searchText)
+                    }) { toDo in
                         NavigationLink(
                             destination: UpdateTodoView(toDo: toDo),
                             tag: toDo,
@@ -72,10 +65,10 @@ struct HomeView: View {
                         }
                     }
                     .onDelete(perform : deleteToDo)
-                    }.navigationTitle("My Tasks")
                 }
+                .navigationTitle("My Tasks")
             }
-            
+            .searchable(text: $searchText)
         }
     }
     
@@ -85,11 +78,10 @@ struct HomeView: View {
         formatter.timeStyle = .short
         return formatter
     }()
-
+}
 
 #Preview {
     
    HomeView().modelContainer(for: [ToDo.self])
 
 }
- 
