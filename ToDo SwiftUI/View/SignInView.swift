@@ -44,12 +44,13 @@ struct SignInView: View {
                         .padding(.horizontal)
                     
                     
-                    NavigationLink(destination : TabPage() , isActive: $viewModel.loginSuccesfull) {
+                    NavigationLink(destination : TabScreen() , isActive: $viewModel.loginSuccesfull) {
                         Button("Log In") {
                            
                             viewModel.email = email
                             viewModel.password = password
                             viewModel.signIn()
+                            
                         }
                         .frame(maxWidth: .infinity, maxHeight: 50)
                         .background(Color.blue)
@@ -58,7 +59,6 @@ struct SignInView: View {
                         .padding(.horizontal)
                     .padding(.top, 20)
                     }
-                    
                     NavigationLink(destination: SignUpView()) {
                         Text("Don't have an account?")
                             .foregroundColor(.blue)
@@ -71,14 +71,15 @@ struct SignInView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.white).navigationBarBackButtonHidden(true)
                 
+                
             }
         }
     }
 }
 
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
-    }
+#Preview {
+   SignInView()
 }
+
+
 

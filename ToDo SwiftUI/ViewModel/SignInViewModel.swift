@@ -5,9 +5,8 @@
 //  Created by Batuhan Berk Ertekin on 22.06.2024.
 //
 
-import Foundation
 import Firebase
-
+import SwiftUI
 
 class SignInViewModel  : ObservableObject{
     
@@ -23,12 +22,15 @@ class SignInViewModel  : ObservableObject{
                 
                 print(error.localizedDescription)
             } else {
-            
+                
                 self.loginSuccesfull = true
+                
             }
             
         }
         
     }
-    
 }
+    
+    
+

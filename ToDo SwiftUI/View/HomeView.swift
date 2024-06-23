@@ -9,6 +9,7 @@ struct HomeView: View {
     @State private var isAddingToDo = false
     @State private var searchText: String = ""
     
+    
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -20,6 +21,7 @@ struct HomeView: View {
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
+    
     }
     
     private func deleteToDo(indexSet: IndexSet) {

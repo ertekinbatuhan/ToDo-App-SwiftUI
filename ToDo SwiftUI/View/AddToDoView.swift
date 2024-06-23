@@ -44,7 +44,7 @@ struct AddToDoView: View {
                 .cornerRadius(10)
                 .padding()
                 
-                NavigationLink(destination : TabPage(), isActive: $state ) {
+                NavigationLink(destination : TabScreen(), isActive: $state ) {
                     Button(action: {
                         
                         if task != "" {
