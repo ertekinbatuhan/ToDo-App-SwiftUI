@@ -47,6 +47,7 @@ struct HomeView: View {
                             selection: $selectedToDo
                         ) {
                             HStack {
+                                
                                 VStack(alignment: .leading, spacing: 4) {
                                     Text(toDo.task)
                                         .font(.title3)
