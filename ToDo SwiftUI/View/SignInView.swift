@@ -44,7 +44,7 @@ struct SignInView: View {
                         .padding(.horizontal)
                     
                     
-                    NavigationLink(destination : TabScreen() , isActive: $viewModel.loginSuccesfull) {
+                    NavigationLink(destination : TabScreen().navigationBarBackButtonHidden(true) , isActive: $viewModel.loginSuccesfull) {
                         Button("Log In") {
                            
                             viewModel.email = email
@@ -59,7 +59,7 @@ struct SignInView: View {
                         .padding(.horizontal)
                     .padding(.top, 20)
                     }
-                    NavigationLink(destination: SignUpView()) {
+                    NavigationLink(destination: SignUpView().navigationBarBackButtonHidden(true)) {
                         Text("Don't have an account?")
                             .foregroundColor(.blue)
                             .padding(.top, 20)
@@ -69,7 +69,7 @@ struct SignInView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.white).navigationBarBackButtonHidden(true)
+                .background(Color.white)
                 
                 
             }

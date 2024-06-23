@@ -49,7 +49,7 @@ struct SignUpView: View {
                         .padding(.horizontal)
                     
                     
-                    NavigationLink(destination: TabScreen(), isActive: $viewModel.registrationSuccessful) {
+                    NavigationLink(destination: TabScreen().navigationBarBackButtonHidden(true), isActive: $viewModel.registrationSuccessful) {
                         Button("Sign Up") {
                                 
                                 viewModel.fullName = fullName

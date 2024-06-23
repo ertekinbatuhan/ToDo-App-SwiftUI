@@ -44,7 +44,7 @@ struct HomeView: View {
                         searchText.isEmpty || $0.task.localizedCaseInsensitiveContains(searchText)
                     }) { toDo in
                         NavigationLink(
-                            destination: UpdateTodoView(toDo: toDo),
+                            destination: UpdateTodoView(toDo: toDo).navigationBarBackButtonHidden(true),
                             tag: toDo,
                             selection: $selectedToDo
                         ) {
